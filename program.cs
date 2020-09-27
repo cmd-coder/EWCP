@@ -9,4 +9,8 @@ class program
 		Random ran=new Random();
 		return ran.Next(0,2);
 	}
+	static int dailyWage()
+	{
+		return 8*20;
+	}
 }
