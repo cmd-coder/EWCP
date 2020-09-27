@@ -4,4 +4,9 @@ class program
 	{
 		Console.WriteLine("Welcome to Employee Wage Coputation Program");
 	}
+	static int attendance()
+	{
+		Random ran=new Random();
+		return ran.Next(0,2);
+	}
 }
