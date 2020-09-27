@@ -13,4 +13,12 @@ class program
 	{
 		return 8*20;
 	}
+	static void partTime()
+	{
+		Console.WriteLine("Enter name");
+		String name=Console.ReadLine();
+		Console.WriteLine("Enter wage per hour");
+		int wage=Convert.ToInt(Console.ReadLine());
+		Console.WriteLine("Name: "+name+"Total daily wage: "+(8*wage));
+	}
 }
