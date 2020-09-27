@@ -21,4 +21,10 @@ class program
 		int wage=Convert.ToInt(Console.ReadLine());
 		Console.WriteLine("Name: "+name+"Total daily wage: "+(8*wage));
 	}
+	static void monthWage()
+	{
+		Console.WriteLine("Enter wage per hour");
+		int wage=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Monthly Wage: "+8*20*wage);
+	}
 }
