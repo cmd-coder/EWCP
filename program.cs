@@ -27,4 +27,13 @@ class program
 		int wage=Convert.ToInt32(Console.ReadLine());
 		Console.WriteLine("Monthly Wage: "+8*20*wage);
 	}
+	static void workCond()
+	{
+		Console.WriteLine("Enter the number os working days in a month");
+		int a=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Enter wages per hour");
+		int wage=Convert.ToInt32(Console.ReadLine());
+		int max=Math.Max(100*wage, 20*8*wage);
+		Console.WriteLine("Total Wages: "+max);
+	}
 }
