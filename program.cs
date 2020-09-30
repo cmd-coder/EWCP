@@ -1,6 +1,10 @@
 class program
 {
-	static void Main(string args[])
+	static void Main(string []args)
+	{
+		function();
+	}
+	static void function()
 	{
 		Console.WriteLine("Welcome to Employee Wage Coputation Program");
 		Random ran = new Random();
