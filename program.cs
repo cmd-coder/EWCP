@@ -5,6 +5,7 @@ class program
 		Console.WriteLine("Welcome to Employee Wage Coputation Program");
 		Random ran = new Random();
 		int totalWage=0;
+		int totalHours=100;
 		for(int i=0;i<20;i++)
 		{
 			int atten = ran.Next(0,3);
@@ -24,6 +25,14 @@ class program
 					break;
 			}
 			totalWage+=(wage*hour);
+			totalHours-=hour;
+			if(totalHours == 0)
+				break;
+			if(totalHours < 0)
+			{
+				totalWage-=(4*wage);
+				break;
+			}
 		}
 		Console.WriteLine("Monthly Employee Wages: "+totalWage);
 	}
