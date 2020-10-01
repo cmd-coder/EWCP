@@ -1,35 +1,37 @@
+using System;
 class program
 {
-	static void Main(string []args)
+	public static void Main(string []args)
 	{
-		function();
+		function(100, 20, 20, 8);
+		function(200, 40, 25, 10);
 	}
-	static void function()
+	static void function(int totalHours, int totalDays, int wage, int hour)
 	{
 		Console.WriteLine("Welcome to Employee Wage Coputation Program");
 		Random ran = new Random();
 		int totalWage=0;
-		int totalHours=100;
-		for(int i=0;i<20;i++)
+		//int totalHours=100;
+		for(int i=0;i<totalDays;i++)
 		{
 			int atten = ran.Next(0,3);
-			int wage=20, hour=8;
+			int tempHour=hour;
 			switch(atten)
 			{
 				case 0:
-					hour=0;
+					tempHour=0;
 					Console.WriteLine("Employee is absent");
 					break;
 				case 1:
-					hour=4;
+					tempHour/=2;
 					Console.WriteLine("Employee is prersent for part time");
 					break;
 				default:
 					Console.WriteLine("Employee is present for full time");
 					break;
 			}
-			totalWage+=(wage*hour);
-			totalHours-=hour;
+			totalWage+=(wage*tempHour);
+			totalHours-=tempHour;
 			if(totalHours == 0)
 				break;
 			if(totalHours < 0)
