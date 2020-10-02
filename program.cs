@@ -99,9 +99,9 @@ public class EmpWageBuilder : IEmpWageBuilder
                         }
                 }
 		Console.WriteLine("Daily Wages of the employee for working on a total of "+markDays+" days are");
-		Console.Write("--");
 		for(int i=0;i<markDays;i++)
-			Console.Write(dailyWage[i]+"--");
+			Console.Write("--"+dailyWage[i]);
+		Console.WriteLine("--");
                 Console.WriteLine("Monthly Employee Wages for the company "+companyName+" is: "+totalWage);
 		Console.WriteLine("----------------------------------");
         }
