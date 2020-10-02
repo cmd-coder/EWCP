@@ -10,6 +10,10 @@ public class program
 		EWB.AddEmployeeWage("Company1", 100, 20, 20, 8);
 		EWB.AddEmployeeWage("Company2", 200, 40, 25, 10);
 		EWB.CalculateTotalWage();
+
+		Console.WriteLine("-----------------------");
+		Console.WriteLine("The total wages received by an employee of \"Company2\" is: ");
+		EWB.GetTotalWages("Company2");
 	}
 }
 
@@ -19,7 +23,7 @@ public class CompanyEmpWage
         int totalDays;
         int wage;
         int hour;
-	string companyName;
+	public string companyName;
 
         public CompanyEmpWage(string companyName, int totalHours, int totalDays, int wage, int hour)
         {
@@ -43,6 +47,7 @@ interface IEmpWageBuilder
 	void AddEmployeeWage(string companyName, int totalHours, int totalDays, int wage, int hour);
 	void CalculateTotalWage();
 	void TotalWage(string companyName, int totalHours, int totalDays, int wage, int hour);
+	void GetTotalWages(string companyName);
 }
 
 public class EmpWageBuilder : IEmpWageBuilder
@@ -52,6 +57,15 @@ public class EmpWageBuilder : IEmpWageBuilder
 	public void AddEmployeeWage(string companyName, int totalHours, int totalDays, int wage, int hour)
 	{
 		CEW.Add(new CompanyEmpWage(companyName, totalHours, totalDays, wage, hour));
+	}
+
+	public void GetTotalWages(string name)
+	{
+		for(int i=0;i<CEW.Count;i++)
+		{
+			if(CEW[i].companyName==name)
+				CEW[i].Calculate();
+		}
 	}
 
 	public void CalculateTotalWage()
