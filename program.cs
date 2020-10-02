@@ -5,32 +5,58 @@ public class program
 	{
 		Console.WriteLine("Welcome to Emaployee Wage Computation Program");
 		Console.WriteLine("----------------------");
-		Console.WriteLine("For Company1");
-		EmployeeWageCalculator company1=new EmployeeWageCalculator(100, 20, 20, 8);
-		EmployeeWageCalculator company2=new EmployeeWageCalculator(200, 40, 25, 10);
-		company1.TotalWage();
-		Console.WriteLine("----------------------");
-		Console.WriteLine("For Company2");
-		company2.TotalWage();
+		EmpWageBuilder EWB=new EmpWageBuilder();
+		EWB.AddEmployeeWage("Company1", 100, 20, 20, 8);
+		EWB.AddEmployeeWage("Company2", 200, 40, 25, 10);
+		EWB.CalculateTotalWage();
 	}
 }
 
-public class EmployeeWageCalculator
+public class CompanyEmpWage
 {
 	int totalHours;
-	int totalDays;
-	int wage;
-	int hour;
-	
-	public EmployeeWageCalculator(int totalHours, int totalDays, int wage, int hour)
+        int totalDays;
+        int wage;
+        int hour;
+	string companyName;
+
+        public CompanyEmpWage(string companyName, int totalHours, int totalDays, int wage, int hour)
+        {
+                this.totalHours=totalHours;
+                this.totalDays=totalDays;
+                this.wage=wage;
+                this.hour=hour;
+		this.companyName=companyName;
+        }
+
+	public void Calculate();
 	{
-		this.totalHours=totalHours;
-		this.totalDays=totalDays;
-		this.wage=wage;
-		this.hour=hour;
+		EmpWageBuilder builder=new EmpWageBuilder();
+		builder.TotalWage(companyName, totalHours, totalDays, wage, hour);
 	}
 
-	public void TotalWage()
+}
+
+public class EmpWageBuilder
+{
+	CompanyEmpWage []CEW = new CompanyEmpWage[100];
+	int i=0;
+
+	public void AddEmployeeWage(string companyName, int totalHours, int totalDays, int wage, int hour)
+	{
+		CEW[i]=new CompanyEmpWage(companyName, totalHours, totalDays, wage, hour);
+		i++;
+	}
+
+	public void CalculateTotalWage()
+	{
+		for(int j=0;j<i;j++)
+		{
+			CEW[j].Calculate();
+		}
+	}
+
+	public void TotalWage(string companyName, int totalHours, int totalDays, int wage, int hour)
         {
                 Random ran = new Random();
                 int totalWage=0;
@@ -63,6 +89,7 @@ public class EmployeeWageCalculator
                                 break;
                         }
                 }
-                Console.WriteLine("Monthly Employee Wages: "+totalWage);
+                Console.WriteLine("Monthly Employee Wages for the company "+companyName+" is: "+totalWage);
+		Console.WriteLine("----------------------------------");
         }
 }
