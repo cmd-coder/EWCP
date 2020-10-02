@@ -66,7 +66,8 @@ public class EmpWageBuilder : IEmpWageBuilder
         {
                 Random ran = new Random();
                 int totalWage=0;
-                //int totalHours=100;
+                int []dailyWage = new int[totalDays];
+		int markDays=0;
                 for(int i=0;i<totalDays;i++)
                 {
                         int atten = ran.Next(0,3);
@@ -85,6 +86,8 @@ public class EmpWageBuilder : IEmpWageBuilder
                                         Console.WriteLine("Employee is present for full time");
                                         break;
                         }
+			dailyWage[i]=wage*tempHour;
+			markDays++;
                         totalWage+=(wage*tempHour);
                         totalHours-=tempHour;
                         if(totalHours == 0)
@@ -95,6 +98,10 @@ public class EmpWageBuilder : IEmpWageBuilder
                                 break;
                         }
                 }
+		Console.WriteLine("Daily Wages of the employee for working on a total of "+markDays+" days are");
+		Console.Write("--");
+		for(int i=0;i<markDays;i++)
+			Console.Write(dailyWage[i]+"--");
                 Console.WriteLine("Monthly Employee Wages for the company "+companyName+" is: "+totalWage);
 		Console.WriteLine("----------------------------------");
         }
