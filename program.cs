@@ -22,7 +22,7 @@ public class EmployeeWageCalculator
 	int wage;
 	int hour;
 	
-	public void EmployeeWageCalculator(int totalHours, int totalDays, int wage, int hour)
+	public EmployeeWageCalculator(int totalHours, int totalDays, int wage, int hour)
 	{
 		this.totalHours=totalHours;
 		this.totalDays=totalDays;
