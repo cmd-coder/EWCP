@@ -29,7 +29,7 @@ public class CompanyEmpWage
 		this.companyName=companyName;
         }
 
-	public void Calculate();
+	public void Calculate()
 	{
 		EmpWageBuilder builder=new EmpWageBuilder();
 		builder.TotalWage(companyName, totalHours, totalDays, wage, hour);
