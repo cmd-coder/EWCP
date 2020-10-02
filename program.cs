@@ -37,7 +37,14 @@ public class CompanyEmpWage
 
 }
 
-public class EmpWageBuilder
+interface IEmpWageBuilder
+{
+	void AddEmployeeWage(string companyName, int totalHours, int totalDays, int wage, int hour);
+	void CalculateTotalWage();
+	void TotalWage(string companyName, int totalHours, int totalDays, int wage, int hour);
+}
+
+public class EmpWageBuilder : IEmpWageBuilder
 {
 	CompanyEmpWage []CEW = new CompanyEmpWage[100];
 	int i=0;
