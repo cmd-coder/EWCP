@@ -1,4 +1,5 @@
 using System;
+using Syatem.Collections.Generic;
 public class program
 {
 	public static void Main(string []args)
@@ -46,18 +47,16 @@ interface IEmpWageBuilder
 
 public class EmpWageBuilder : IEmpWageBuilder
 {
-	CompanyEmpWage []CEW = new CompanyEmpWage[100];
-	int i=0;
+	List<CompanyEmpWage> CEW = new List<CompanyEmpWage>();
 
 	public void AddEmployeeWage(string companyName, int totalHours, int totalDays, int wage, int hour)
 	{
-		CEW[i]=new CompanyEmpWage(companyName, totalHours, totalDays, wage, hour);
-		i++;
+		CEW.Add(new CompanyEmpWage(companyName, totalHours, totalDays, wage, hour));
 	}
 
 	public void CalculateTotalWage()
 	{
-		for(int j=0;j<i;j++)
+		for(int j=0;j<CEW.Count;j++)
 		{
 			CEW[j].Calculate();
 		}
