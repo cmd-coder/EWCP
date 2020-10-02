@@ -1,5 +1,5 @@
 using System;
-using Syatem.Collections.Generic;
+using System.Collections.Generic;
 public class program
 {
 	public static void Main(string []args)
